@@ -1,6 +1,6 @@
 // start of JQ
 $(document).ready(function(){
-
+let date = '';
 // these are variabales for day zero
 let dayZero = moment().format("Do MM YYYY")
 let dayOne = moment().add(1,'days').calendar();
@@ -17,32 +17,59 @@ $("#dayFour").text(dayFour);
 $("#dayFive").text(dayFive);
 
 // these are the variables for the API fetch
-let lat= '';
-let lon= '';
 let locationQuery= '';
-let temperatureData='';
 
-$("#searchBtn").on("click", function(Event) { 
+$ ("#searchBtn").on("click", function(Event) { 
     locationQuery = $("#searchField").val().trim();
    event.preventDefault ();
     console.log(locationQuery)
-    console.log("the search, button was clicked");
 
-    cardElContainer = $("cardElementsContainer");
-    createcardEL = $("<div>");
-    cardElContainer.append(createcardEL);
-   console.log("its appended")
+    fetch(
+            'https://api.openweathermap.org/data/2.5/forecast?q=' +
+            locationQuery+
+             '&appid=4e9b190f26827f446e804d86e0f8f699'
+            )
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(weatherData) {
+                console.log(weatherData);
+ 
+                for (i=0; i<5; i++){
+                //     data from API
+        let dayDateTime = weatherData.list[i];
+        let dayTempKelvin = weatherData.list[i].main.temp;
+        let dayWindSpeed = weatherData.list[i].wind.speed;
+        let dayHumidity = weatherData.list[i].main.humidity;
+        let dayWeatherDetailsMain = weatherData.list[i].weather[0].main;
+        let dayWeatherDetailsDescription = weatherData.list[i].weather[0].description;
+        let dayWeatherDetailsIcon = weatherData.list[i].weather[0].icon;
    
-// fetch(
-//     'https://api.openweathermap.org/data/2.5/forecast?q=' +
-//     locationQuery+
-//      '&appid=4e9b190f26827f446e804d86e0f8f699'
-//     )
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(weatherData) {
-//         console.log(weatherData);
+    cardElContainer = $("#cardElementsContainer");
+    createcardEL = $("<div>").addClass("card").text("div created");
+    createCardBody = $("<div>").addClass("card-body").text("div created");
+    headerEl = $("<h5>").addClass("card-title");
+    listElTemp = $("<li>").addClass("listClass").attr("id","dayTemp");
+    listElWind = $("<li>").addClass("listClass").attr("id","dayWind");
+    listElUvIndex = $("<li>").addClass("listClass").attr("id","day");
+    listElHumidity = $("<li>").addClass("listClass").attr("id","dayHumidity");
+    headerEl.append(listElHumidity);
+    headerEl.append(listElUvIndex);
+    headerEl.append(listElWind);
+    headerEl.append(listElTemp);
+    createCardBody.append(headerEl);
+    createcardEL.append(createCardBody);
+    cardElContainer.append(createcardEL);
+
+        headerEl.text(date);
+        $("#day").text(dayDateTime);
+        $("#dayTemp").text(dayTempKelvin);
+        $("#dayWind").text(dayWindSpeed);
+        $("#dayHumidity").text(dayHumidity);
+        $("#dayWeatherDetailsMain").text(dayWeatherDetailsMain);
+        $("#dayWeatherDetailsDescription").text(dayWeatherDetailsDescription);
+        $("#dayWeatherDetailsIcon").text(dayWeatherDetailsIcon);
+}
 
     // lat = positionData.coord.lat;
     // lon= positionData.coord.lon;
@@ -139,7 +166,6 @@ $("#searchBtn").on("click", function(Event) {
         // $("#dayFiveUvIndex").text(dayFiveUvIndex);
 // -----------------------------------------------------------------------------------------------
         });
-
     });
-// })
+})
 // end of Jq
