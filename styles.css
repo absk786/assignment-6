@@ -1,0 +1,26 @@
+.custom{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+.searchHistory { 
+    margin-right: 200px;
+}
+.cardZero{
+margin-top: 100px;
+width: 500px;
+height: 250px;
+margin-left: 500px;
+}
+
+.container {
+    max-width: 720px;
+    margin-left: 4px;
+}
+
+.cardRight{
+    float: right;
+    margin-right: -105px;
+
+}

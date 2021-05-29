@@ -26,7 +26,7 @@
             Welcome to my Weather Dashboard
             </h3> 
          <!-- this is the search element -->
-         <nav class="navbar navbar-light bg-light">
+         <nav class="navbar navbar-light bg-light custom">
            <form class="form-inline">
              <input class="form-control mr-sm-2" id="searchField" type="search" placeholder="Search" aria-label="Search">
              <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
@@ -34,25 +34,17 @@
            <div class="searchHistory"></div>
          </nav>
         <!-- this is the main content display area -->
-            <li class="d-inline  border-primary" id="dayZero"></li>
-            <li id="dayZeroTemp" ></li>
-            <li id="dayZeroWind"></li>
-            <li id="dayZeroHumidity"></li>
-            <li id="dayZeroWeatherDetailsMain"></li>      
-            <li id="dayZeroWeatherDetailsDescription"></li>      
-            <li id="dayZeroWeatherDetailsIcon"></li>      
+          <div class="cardZero">
+            <p class="d-inline  border-primary" id="dayZero"></p>
+           <p id="dayZeroTemp" ></p>
+            <p id="dayZeroWind"></p>
+            <p id="dayZeroHumidity"></p>
+            <p id="dayZeroWeatherDetailsMain"></p>      
+            <p id="dayZeroWeatherDetailsDescription"></p>      
+            <p id="dayZeroWeatherDetailsIcon"></p>   
+          </div>
         <!-- these are the card elements -->
-        <div class="card-group p-2 bg-primary border border-primary" id="cardElementsContainer">
-          <!-- <div class="card  border border-primary">
-              <div class="card-body">
-                <h5 class="card-title"  id="dayOne">21/12/2012</h5>
-                <li id="dayOneTemp"></li>
-                <li id="dayOneWind"></li>
-                <li id="dayOneHumidity"></li>
-                <li id="dayOneUvIndex"></li>    
-            </div>
-           </div> -->
-    </div>
+        <div class="card-group p-2 bg-primary border border-primary cardRight" id="cardElementsContainer" ></div>
 </main>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
