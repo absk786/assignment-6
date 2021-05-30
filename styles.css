@@ -28,4 +28,6 @@ margin-left: 600px;
 
 .dynamicP {
 margin-right: 80px;
+display: flex;
+flex-direction: column;
 }
