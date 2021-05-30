@@ -35,6 +35,7 @@ $("#searchBtn").on("click", function serachEvent (event) {
                 console.log("searchbutton clcked twice")
 
                 cardElContainer.text('');
+
                 locationQuery = $("#searchField").val().trim();
                 searchHistory.push(locationQuery)
                 localStorage.setItem("location", JSON.stringify(searchHistory));
@@ -196,7 +197,6 @@ $("#searchBtn").on("click", function serachEvent (event) {
 // this is on clicking the search history
 $(".dynamicP").on("click", function () {
         cardElContainer = $("#cardElementsContainer").text("");
-
         locationQuery = $(this).text()
         console.log(locationQuery)
 
@@ -240,15 +240,13 @@ $(".dynamicP").on("click", function () {
                                 $("#dayZeroWeatherUVI").text("UV Index: " + dayZdata.current.uvi + "%")
                                 $("#dayZeroWeatherDetailsMain").text("Description: " + dayZdata.current.weather[0].main)
                                 // $("#dayZeroWeatherDetailsDescription").text(dayZdata.current.weather[0].description)
-                                
                                 let icon = dayZdata.current.weather[0].icon;
 
                                 let currentWeatherUrl = 'http://openweathermap.org/img/wn/' +
                                 icon +
                                 '@2x.png';
                                 imageIcon = $("<img>").attr("src", currentWeatherUrl);
-                                cardZero.append(imageIcon)        
-
+                                // cardZero.append(imageIcon)        
                 })
                         let firstDate = weatherDataList[0].dt_txt;
                         let firstDateMoment = moment(firstDate);
