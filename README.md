@@ -1,4 +1,7 @@
 # assignment-6
+This is weather dashboard. It has the ability to display weather for the current time at which you conduct a search. The app displays a forecast of multiple days as well as the current day and provides various other descriptiors or the weather such as humidity, uv index and more. 
+
+
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history

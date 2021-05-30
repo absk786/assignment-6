@@ -30,8 +30,11 @@ $(document).ready(function () {
         })
 // ------------------------------------------------------------------------------------------     
 
+$(".dynamicP").text("")
+// ------------------------------------------------------------------------------------------     
+
 // this is the API call#1
-$("#searchBtn").on("click", function (event) {
+$("#searchBtn").on("click", function serachEvent (event) {
                 console.log("searchbutton clcked twice")
 
                 cardElContainer.text('');
@@ -192,8 +195,6 @@ $("#searchBtn").on("click", function (event) {
                         
         });
 // ------------------------------------------------------------------------------------------     
-
-// this is the API call #2
         
 // ------------------------------------------------------------------------------------------     
 function printHistory(searchHistory) {
