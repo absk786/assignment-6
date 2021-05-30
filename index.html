@@ -30,18 +30,20 @@
            <form class="form-inline">
              <input class="form-control mr-sm-2" id="searchField" type="search" placeholder="Search" aria-label="Search">
              <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
+             <button class="btn btn-outline-success my-2 my-sm-0" id="clearBtn" >Clear</button>
            </form>
            <div class="searchHistory"></div>
          </nav>
         <!-- this is the main content display area -->
-          <div class="cardZero">
-            <p class="d-inline  border-primary" id="dayZero"></p>
+          <div class="cardZero ">
+          <p class="d-inline  border-primary" id="dayZero"></p>
            <p id="dayZeroTemp" ></p>
             <p id="dayZeroWind"></p>
             <p id="dayZeroHumidity"></p>
             <p id="dayZeroWeatherDetailsMain"></p>      
             <p id="dayZeroWeatherDetailsDescription"></p>      
-            <p id="dayZeroWeatherDetailsIcon"></p>   
+            <p id="dayZeroWeatherUVI"></p>      
+            <img id="dayZeroWeatherDetailsIcon">
           </div>
         <!-- these are the card elements -->
         <div class="card-group p-2 bg-primary border border-primary cardRight" id="cardElementsContainer" ></div>
